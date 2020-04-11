@@ -1,0 +1,284 @@
+/** Add any CSS you need to this file. */
+
+/* 
+Google Web Fonts 
+    font-family: 'Roboto', sans-serif; 
+    font-family: 'IBM Plex Serif', serif; 
+    font-family: 'Nanum Myeongjo', serif; 
+*/
+
+html * {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  flex: 0.5;
+  background-color: #d4d7dd;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+}
+
+header > div {
+  margin-left: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  height: 2em;
+}
+
+header span {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-left: 0.5em;
+  margin-right: 1.5em;
+}
+
+header > div > span {
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#app {
+  flex: 9;
+  display: flex;
+  overflow-y: auto;
+}
+
+nav,
+nav > div {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+nav {
+  flex: 1;
+  align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: #f6f6f6;
+}
+
+nav > div {
+  margin: 5%;
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: bold;
+}
+
+a:link,
+a:visited {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+
+nav a:focus {
+  text-decoration: underline;
+}
+
+main {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  overflow-y: auto;
+}
+
+main > div {
+  width: 100%;
+}
+
+#main_grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 500px) and (max-width: 750px) {
+  #main_grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #main_grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #app {
+    flex-direction: column;
+  }
+
+  nav {
+    flex: 0.6;
+    flex-direction: row;
+  }
+
+  header > div > img + span {
+    display: none;
+  }
+}
+
+#main_grid > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#main_grid > div > img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+#main_grid > div > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#main_grid > div > img + div {
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+#main_grid > div > img + div ~ div {
+  font-family: 'IBM Plex Serif', serif;
+}
+
+#main_grid > div > div:nth-of-type(2) {
+  font-style: italic;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eae9e9;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#contact-table {
+  width: 100%;
+  padding: 1em;
+  font-family: 'Roboto', sans-serif;
+}
+
+#contact-table > h1 {
+  font-size: 1.8em;
+}
+
+#table-header {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#contact-table form {
+  margin-top: 2em;
+  padding: 2em;
+  border: 2px solid #420000;
+  border-radius: 1em;
+
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+#contact-table #checkbox,
+#contact-table #radio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#contact-table form label,
+#contact-table form input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  border-radius: 0.5em;
+}
+
+#contact-table input,
+#contact-table textarea {
+  width: 100%;
+  padding: 0.3em;
+  font-size: 1.3em;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 0.5em;
+}
+
+#contact-table input:focus,
+#contact-table textarea:focus {
+  outline: 1px solid #8f2525;
+}
+
+#contact-table textarea {
+  grid-column: 1/3;
+}
+
+#contact-table input[type='submit'],
+#contact-table input[type='reset'] {
+  width: 150px;
+  background-color: #420000;
+  color: white;
+}
+
+#contact-table input[type='submit']:hover,
+#contact-table input[type='submit']:focus,
+#contact-table input[type='reset']:hover,
+#contact-table input[type='reset']:focus {
+  background-color: #9b3535;
+}
+
+.buttons {
+  grid-column: 2/3;
+  text-align: right;
+}
+
+#contact-table input[type='checkbox'] {
+  display: flex;
+  justify-content: flex-start;
+  width: 50px;
+}
+
+.redstar {
+  color: red;
+  font-size: 0.8em;
+}
+
+#sku-label {
+  display: none;
+}
