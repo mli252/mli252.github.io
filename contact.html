@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TheWood - Contact</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&family=Nanum+Myeongjo&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="images/logo.png" alt="" />
+        <span>TheWood Furnishing Ltd.</span>
+      </div>
+    </header>
+    <div id="app">
+      <nav>
+        <div>
+          <a href="index.html">Main</a>
+        </div>
+      </nav>
+      <main>
+        <div id="contact-table">
+          <div id="table-header">
+            <h1>Contact information</h1>
+            <p>
+              Please fill out all the blanks in the form.
+            </p>
+          </div>
+
+          <form action="https://httpbin.org/post" method="post" id="contact-form">
+            <label for="feedback-firstname"><span class="redstar">*</span> First Name</label>
+            <input
+              id="feedback-firstname"
+              name="firstName"
+              autocomplete="given-name"
+              type="text"
+              autofocus
+              tabindex="1"
+              required
+            />
+
+            <label for="feedback-lastname"><span class="redstar">*</span> Last Name</label>
+            <input
+              id="feedback-lastname"
+              name="lastName"
+              autocomplete="family-name"
+              type="text"
+              tabindex="2"
+              required
+            />
+
+            <label for="feedback-email"><span class="redstar">*</span> Email Address</label>
+            <input
+              id="feedback-email"
+              name="email"
+              autocomplete="email"
+              type="email"
+              tabindex="3"
+              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+              required
+            />
+
+            <label for="feedback-address"><span class="redstar">*</span> Address</label>
+            <input id="feedback-address" name="address" type="text" tabindex="4" required />
+
+            <label for="feedback-city"><span class="redstar">*</span> City</label>
+            <input
+              id="feedback-city"
+              name="city"
+              tabindex="5"
+              list="feedback-cities"
+              required
+              placeholder="Which city are you from?"
+            />
+            <datalist id="feedback-cities">
+              <option value="Toronto"></option>
+              <option value="Vancouver"></option>
+              <option value="Montreal"></option>
+              <option value="Ottawa"></option>
+              <option value="Calgary"></option>
+              <option value="Edmonton"></option>
+              <option value="Winnipeg"></option>
+              <option value="Halifax"></option>
+              <option value="Hamilton"></option>
+              <option value="Mississauga"></option>
+              <option value="Other"></option>
+            </datalist>
+
+            <label for="feedback-phone"><span class="redstar">*</span> Phone Number</label>
+            <input
+              id="feedback-phone"
+              name="phone"
+              type="tel"
+              tabindex="6"
+              pattern="^[0-9][0-9][0-9]\s?[0-9][0-9][0-9]\s?[0-9][0-9][0-9][0-9]$"
+              required
+            />
+
+            <label for="feedback-postcode"><span class="redstar">*</span> Postal Code</label>
+            <input
+              id="feedback-postcode"
+              name="postcode"
+              type="text"
+              tabindex="7"
+              placeholder="L2S 3R4"
+              pattern="^[a-zA-Z][0-9][a-zA-Z][- ]?[0-9][a-zA-Z][0-9]"
+              required
+            />
+
+            <label for="feedback-checkbox">Would you like to be phoned?</label>
+            <input id="feedback-checkbox" type="checkbox" name="feedback-checkbox" tabindex="8" />
+
+            <label for="question"><span class="redstar">*</span>What help do you need?</label><br />
+            <input type="radio" name="radio" value="Question" id="question" required />
+            <label for="question">Question</label>
+
+            <input type="radio" name="radio" value="Comment" id="comment" required />
+            <label for="comment">Comment</label>
+
+            <input type="radio" name="radio" value="Order Problem" id="order" required />
+            <label for="order">Order Problem</label>
+
+            <label for="sku" id="sku-label"><span class="redstar">*</span> Order Number</label>
+            <input type="text" name="order-number" id="sku" />
+
+            <textarea
+              id="feedback-message"
+              name="message"
+              rows="10"
+              tabindex="9"
+              placeholder="  Please leave your message..."
+            ></textarea>
+
+            <input type="hidden" name="Muzi" id="Muzi" value="Muzi Li" />
+
+            <div class="buttons">
+              <input type="submit" name="submit" value="Submit" tabindex="10" />
+              <input type="reset" name="reset" value="Reset" tabindex="11" />
+            </div>
+          </form>
+
+          <script>
+            window.onload = function() {
+              let form = document.getElementById('contact-form');
+              let label = document.getElementById('sku-label');
+              function btnChecked() {
+                if (form.order.checked) {
+                  form.sku.style.display = 'block';
+                  form.sku.required = true;
+                  label.style.display = 'block';
+                } else {
+                  form.sku.style.display = 'none';
+                  form.sku.required = false;
+                  label.style.display = 'none';
+                }
+              }
+
+              form.order.onchange = btnChecked;
+              form.comment.onchange = btnChecked;
+              form.question.onchange = btnChecked;
+            };
+          </script>
+        </div>
+        <footer>
+          <form action="https://formspree.io/mgelnvgz" method="POST">
+            <label for="subscribe-email">Email</label>
+            <input
+              id="subscribe-email"
+              name="email"
+              autocomplete="email"
+              type="email"
+              pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+              required
+            />
+            <div class="buttons">
+              <input type="submit" name="submit" value="Subscribe" />
+            </div>
+          </form>
+          <span>&copy; 2020 TheWood Furnishing Ltd.</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
+<!--    
+
+    Part 2: Contact Us Page
+
+    Requirements:
+
+    1. Use the same header/footer, colours, fonts, etc. as your index.html page.
+    It should be obvious to the user they they are still on the same site, and that
+    contact.html is part of your store.
+
+    2. Include an HTML Form for the user to fill out his or her information along
+    with their message to you. Your form should including the following, and all
+    fields should be mandatory unless otherwise noted, and use the most appropriate <input> type:
+    
+        - First Name
+        - Last Name
+        - Email Address
+        - Address
+        - City (use a <datalist> for autocomplete of common Canadian cities)
+        - Phone Number (must be a valid Canadian Phone Number, use regex)
+        - Postal Code (must be a valid Canadian Postal Code, use regex)
+        - Checkbox Option to be phoned ("Would you like to be phoned?")
+        - Radio Options to specify what this is about: one of "Question",
+          "Comment", or "Order Problem". If the user selects "Order Problem",
+          dynamically reveal another input box to enter the order number. In the
+          case of "Comment" or "Question" hide this input box.
+        - A large area to enter the message that they want to send
+        - A hidden input field with your name
+
+    3. The form should submit to https://httpbin.org/post using the POST method,
+    and only allow the user to submit when all data has been entered and there
+    aren't any validation errors.  The data posted to httpbin.org should include
+    all data defined in the form above (e.g., visible and hidden fields).
+
+  -->
